@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Proyecto_Notas.Models.Materia>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="text-center">
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+     <h1 class="display-4">Materias</h1>
+    <p class="lead">Aplicacion de registro para las notas de nuestros estudiantes.</p>
+  </div>
+</div>
+    <hr />
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreMateria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreMateria)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdMateria">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdMateria">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdMateria">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

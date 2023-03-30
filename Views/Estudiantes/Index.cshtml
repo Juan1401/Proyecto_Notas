@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Proyecto_Notas.Models.Estudiante>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+     <h1 class="display-4">Estudiantes</h1>
+    <p class="lead">Aplicacion de registro para las notas de nuestros estudiantes.</p>
+  </div>
+</div>
+    <hr />
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdEstudiante">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdEstudiante">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdEstudiante">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
