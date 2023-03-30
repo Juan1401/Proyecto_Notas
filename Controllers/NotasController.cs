@@ -21,8 +21,8 @@ namespace Proyecto_Notas.Controllers
         // GET: Notas
         public async Task<IActionResult> Index()
         {
-            var merMariaJuliaContext = _context.Notas.Include(n => n.IdEstudianteNavigation).Include(n => n.IdMateriaNavigation);
-            return View(await merMariaJuliaContext.ToListAsync());
+            var merMariaJuliaContext = _context.Notas.Include(n => n.IdEstudianteNavigation).Include(n => n.IdMateriaNavigation).ToList();
+            return View(merMariaJuliaContext);
         }
 
         // GET: Notas/Details/5

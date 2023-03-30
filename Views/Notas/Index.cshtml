@@ -20,13 +20,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nota1)
+                Nota
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdEstudianteNavigation)
+                Nombre del Estudiante
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdMateriaNavigation)
+                Materia
             </th>
             <th></th>
         </tr>
@@ -38,10 +38,10 @@
                 @Html.DisplayFor(modelItem => item.Nota1)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdEstudianteNavigation.IdEstudiante)
+                @Html.DisplayFor(modelItem => item.IdEstudianteNavigation.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdMateriaNavigation.IdMateria)
+                @Html.DisplayFor(modelItem => item.IdMateriaNavigation.NombreMateria)
             </td>
             <td>
                     <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdNota">Edit</a> |
