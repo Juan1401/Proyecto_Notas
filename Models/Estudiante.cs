@@ -18,7 +18,7 @@ public partial class Estudiante
     public int? Edad { get; set; }
 
     //como estaba
-    //public virtual ICollection<Nota> Nota { get; set; } = new List<Nota>();
+    public virtual ICollection<Nota> Nota { get; set; } = new List<Nota>();
 
-    public virtual ICollection<Nota> Nota { get; set; } 
+    //public virtual ICollection<Nota> Nota { get; set; } 
 }

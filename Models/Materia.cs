@@ -10,8 +10,8 @@ public partial class Materia
     public string? NombreMateria { get; set; }
 
     //Como estaba
-    //public virtual ICollection<Nota> Nota { get; } = new List<Nota>();
+    public virtual ICollection<Nota> Nota { get; } = new List<Nota>();
 
 
-    public virtual ICollection<Nota> Nota { get; set; }
+    //public virtual ICollection<Nota> Nota { get; set; }
 }
