@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
 using Proyecto_Notas.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Proyecto_Notas.Controllers
 {
@@ -48,14 +50,17 @@ namespace Proyecto_Notas.Controllers
         // GET: Notas/Create
         public IActionResult Create()
         {
-            ViewData["IdEstudiante"] = new SelectList(_context.Estudiantes, "IdEstudiante", "IdEstudiante");
-            ViewData["IdMateria"] = new SelectList(_context.Materias, "IdMateria", "IdMateria");
+            //ViewData["IdEstudiante"] = new SelectList(_context.Estudiantes, "Nombre", "Nombre");
+            ViewData["IdEstudiante"] = _context.Estudiantes.Select(p => new SelectListItem
+            {
+                Value = p.IdEstudiante.ToString(),
+                Text = $"{p.Nombre} - {p.Apellido}"
+            }).ToList();
+            ViewData["IdMateria"] = new SelectList(_context.Materias, "NombreMateria", "NombreMateria");
             return View();
         }
 
         // POST: Notas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdNota,IdEstudiante,IdMateria,Nota1")] Nota nota)
@@ -72,26 +77,25 @@ namespace Proyecto_Notas.Controllers
         }
 
         // GET: Notas/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int id)
         {
-            if (id == null || _context.Notas == null)
-            {
-                return NotFound();
-            }
+            var nota = _context.Notas.SingleOrDefault(n => n.IdNota == id);
 
-            var nota = await _context.Notas.FindAsync(id);
             if (nota == null)
             {
                 return NotFound();
             }
-            ViewData["IdEstudiante"] = new SelectList(_context.Estudiantes, "IdEstudiante", "IdEstudiante", nota.IdEstudiante);
-            ViewData["IdMateria"] = new SelectList(_context.Materias, "IdMateria", "IdMateria", nota.IdMateria);
+
+            var estudiantes = _context.Estudiantes.ToList();
+            var materias = _context.Materias.ToList();
+
+            ViewData["Estudiantes"] = new SelectList(estudiantes, "IdEstudiante", "Nombre", nota.IdEstudiante);
+            ViewData["Materias"] = new SelectList(materias, "IdMateria", "NombreMateria", nota.IdMateria);
+
             return View(nota);
         }
 
         // POST: Notas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdNota,IdEstudiante,IdMateria,Nota1")] Nota nota)
@@ -121,8 +125,12 @@ namespace Proyecto_Notas.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEstudiante"] = new SelectList(_context.Estudiantes, "IdEstudiante", "IdEstudiante", nota.IdEstudiante);
-            ViewData["IdMateria"] = new SelectList(_context.Materias, "IdMateria", "IdMateria", nota.IdMateria);
+            var estudiantes = _context.Estudiantes.ToList();
+            var materias = _context.Materias.ToList();
+
+            ViewData["Estudiantes"] = new SelectList(estudiantes, "IdEstudiante", "Nombre", nota.IdEstudiante);
+            ViewData["Materias"] = new SelectList(materias, "IdMateria", "NombreMateria", nota.IdMateria);
+
             return View(nota);
         }
 
@@ -160,14 +168,14 @@ namespace Proyecto_Notas.Controllers
             {
                 _context.Notas.Remove(nota);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool NotaExists(int id)
         {
-          return (_context.Notas?.Any(e => e.IdNota == id)).GetValueOrDefault();
+            return (_context.Notas?.Any(e => e.IdNota == id)).GetValueOrDefault();
         }
     }
 }
