@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
@@ -84,7 +85,10 @@ namespace Proyecto_Notas.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.IdEstudiante = new SelectList(_context.Estudiantes, "IdEstudiante", "Nombre");
+            ViewData["IdEstudiante"] = new SelectList(_context.Estudiantes.Select(e => new {
+                e.IdEstudiante,
+                FullName = $"{e.Nombre} {e.Apellido}"
+            }), "IdEstudiante", "FullName");
             ViewBag.IdMateria = new SelectList(_context.Materias, "IdMateria", "NombreMateria");
 
             return View(nota);
@@ -164,6 +168,7 @@ namespace Proyecto_Notas.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
             var estudiantes = _context.Estudiantes.ToList();
             var materias = _context.Materias.ToList();
 

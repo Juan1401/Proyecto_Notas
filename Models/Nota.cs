@@ -12,7 +12,6 @@ public partial class Nota
 
     public int? IdMateria { get; set; }
 
-    [RegularExpression(@"^\d+(\.\d{1,2})?$", ErrorMessage = "Ingrese un número decimal válido.")]
     public decimal Nota1 { get; set; }
 
     public virtual Estudiante? IdEstudianteNavigation { get; set; }
