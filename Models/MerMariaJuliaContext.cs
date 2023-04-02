@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Proyecto_Notas.DTOs;
 
 namespace Proyecto_Notas.Models;
 
@@ -21,12 +22,14 @@ public partial class MerMariaJuliaContext : DbContext
 
     public virtual DbSet<Nota> Notas { get; set; }
 
+    public virtual DbSet<InferioresxMateria> InferioresxMateria { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     { 
         if (!optionsBuilder.IsConfigured)
         { 
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//        => optionsBuilder.UseSqlServer("server=DESKTOP-FRPPVO0\\SQLEXPRESS; database=MER_Maria_Julia; integrated security=true;TrustServerCertificate=true;");
+#warning to protect potentially sensitive information in your connection string, you should move it out of source code. you can avoid scaffolding the connection string by using the name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. for more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?linkid=723263.
+        => optionsBuilder.UseSqlServer("server=DESKTOP-FRPPVO0\\SQLEXPRESS; database=MER_Maria_Julia; integrated security=true;TrustServerCertificate=true;");
 
         }
     }
@@ -92,6 +95,11 @@ public partial class MerMariaJuliaContext : DbContext
             entity.HasOne(d => d.IdMateriaNavigation).WithMany(p => p.Nota)
                 .HasForeignKey(d => d.IdMateria)
                 .HasConstraintName("FK_Materias_Notas");
+        });
+
+        modelBuilder.Entity<InferioresxMateria>(entity =>
+        {
+            entity.HasNoKey();
         });
 
         OnModelCreatingPartial(modelBuilder);

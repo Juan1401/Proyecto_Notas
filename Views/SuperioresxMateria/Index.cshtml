@@ -1,0 +1,36 @@
+﻿@*
+@{
+    ViewData["Title"] = "Inicio";
+}
+@model List<EstudianteMateriaViewModel>
+
+
+<h1>Estudiantes con la nota máxima en cada materia</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>IdEstudiante</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Celular</th>
+            <th>NombreMateria</th>
+            <th>NotaMaxima</th>
+            <th>EstadoMateria</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var estudianteMateria in Model)
+        {
+                <tr>
+                    <td>@estudianteMateria.IdEstudiante</td>
+                    <td>@estudianteMateria.Nombre</td>
+                    <td>@estudianteMateria.Apellido</td>
+                    <td>@estudianteMateria.Celular</td>
+                    <td>@estudianteMateria.NombreMateria</td>
+                    <td>@estudianteMateria.NotaMaxima</td>
+                    <td>@estudianteMateria.EstadoMateria</td>
+                </tr>
+        }
+    </tbody>
+</table>*@

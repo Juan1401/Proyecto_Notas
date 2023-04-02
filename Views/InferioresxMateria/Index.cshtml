@@ -1,0 +1,31 @@
+﻿@model List<Proyecto_Notas.DTOs.InferioresxMateria>
+
+<h1>InferioresxMateria</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>id_estudiante</th>
+            <th>nombre</th>
+            <th>apellido</th>
+            <th>celular</th>
+            <th>nombre_materia</th>
+            <th>Nota_Maxima</th>
+            <th>Estado_Materia</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>@item.id_estudiante</td>
+                    <td>@item.nombre</td>
+                    <td>@item.apellido</td>
+                    <td>@item.celular</td>
+                    <td>@item.nombre_materia</td>
+                    <td>@item.Nota_Maxima</td>
+                    <td>@item.Estado_Materia</td>
+                </tr>
+        }
+    </tbody>
+</table>
