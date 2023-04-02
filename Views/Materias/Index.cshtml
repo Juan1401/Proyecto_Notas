@@ -7,19 +7,22 @@
     <div class="jumbotron jumbotron-fluid">
   <div class="container">
      <h1 class="display-4">Materias</h1>
-    <p class="lead">Aplicacion de registro para las notas de nuestros estudiantes.</p>
+    <p class="lead">Aplicación de registro para las notas de nuestros estudiantes.</p>
   </div>
 </div>
     <hr />
 
 <p>
-    <a class="btn btn-primary" asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">Crear Materia</a>
 </p>
 <table class="table">
     <thead>
-        <tr>
+         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NombreMateria)
+               Id Materia
+            </th>
+            <th>
+               Nombre de la Materia
             </th>
             <th></th>
         </tr>
@@ -28,12 +31,15 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.NombreMateria)
+                @Html.DisplayFor(modelItem => item.IdMateria)
             </td>
+                 <td>
+                        @Html.DisplayFor(modelItem => item.NombreMateria)
+                </td>
             <td>
-                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdMateria">Edit</a> |
-                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdMateria">Details</a> |
-                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdMateria">Delete</a>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdMateria">Editar</a> |
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdMateria">Detalles</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdMateria">Eliminar</a>
             </td>
         </tr>
 }

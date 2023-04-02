@@ -14,11 +14,14 @@
     <hr />
 
 <p>
-   <a class="btn btn-primary" asp-action="Create">Create New</a>
+   <a class="btn btn-primary" asp-action="Create">Registrar Estudiante</a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEstudiante)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
@@ -41,6 +44,9 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.IdEstudiante)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
@@ -56,9 +62,9 @@
                 @Html.DisplayFor(modelItem => item.Edad)
             </td>
             <td>
-                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdEstudiante">Edit</a> |
-                <a asp-action="Details" class="btn btn-primary"  asp-route-id="@item.IdEstudiante">Details</a> |
-                <a asp-action="Delete" class="btn btn-danger"  asp-route-id="@item.IdEstudiante">Delete</a>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdEstudiante">Editar</a> |
+                <a asp-action="Details" class="btn btn-primary"  asp-route-id="@item.IdEstudiante">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger"  asp-route-id="@item.IdEstudiante">Eliminar</a>
             </td>
         </tr>
 }

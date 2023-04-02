@@ -3,6 +3,22 @@
     ViewData["Title"] = "Inicio";
 }
 @model IEnumerable<Proyecto_Notas.DTOs.ResultadoConsulta>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid #ddd;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+
 
 <div class="text-center">
     <div class="jumbotron jumbotron-fluid">
@@ -14,41 +30,54 @@
     <hr />
 
   <div class="text-center">
-      <h1 class="display-4">Reportes</h1>
+      <h1 class="display-4">Reportes de Notas</h1>
   </div>
 
   <div class="b-example-divider"></div>
 
+     <hr />
 
-        <div>
-          <h3 class="fs-2">Aprobados</h3>
-          <p>Aqui encontraras los estudiantes <strong>aprobados</strong> con una nota de 3.5 o mas</p>
-          <a class="btn btn-primary" asp-controller="Aprobados" asp-action="Index">Reporte</a>
-        </div>
-
-
-        <div>
-          <h3 class="fs-2">No Aprobados</h3>
-          <p>Aqui encontraras los estudiantes <strong>reprobados</strong> con una nota menor a 3.5</p>
-         <a class="btn btn-primary" asp-controller="NoAprobados" asp-action="Index">Reporte</a>
-        </div>
-
-
-         <div>
-          <h3 class="fs-2">Mas Altas por Materia</h3>
-          <p>Aqui encontraras los estudiantes con las notas mas altas por materia</p>
-         <a class="btn btn-primary" asp-controller="InferioresxMateria" asp-action="Index">Reporte</a>
-        </div>
-
-        <div>
-          <h3 class="fs-2">Mas Bajas por Materia</h3>
-          <p>Aqui encontraras los estudiantes con las notas mas bajas por materia</p>
-         <a class="btn btn-primary" asp-controller="Aprobados" asp-action="Index">Reporte</a>
-        </div>
-
+<table>
+  <tr>
+    <th><h3 class="fs-2">Aprobados</h3></th>
+    <th><h3 class="fs-2">No Aprobados</h3></th>
+  </tr>
+  <tr>
+    <td>
+      <div>
+@*        <h3 class="fs-2">Aprobados</h3>*@
+        <p>Aqui encontraras los estudiantes <strong>aprobados</strong> con una nota de 3.5 o mas</p>
+        <a class="btn btn-primary" asp-controller="Aprobados" asp-action="Index">Reporte</a>
+      </div>
+    </td>
+    <td>
+      <div>
+        <p>Aqui encontraras los estudiantes <strong>reprobados</strong> con una nota menor a 3.5</p>
+        <a class="btn btn-primary" asp-controller="NoAprobados" asp-action="Index">Reporte</a>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <th><h3 class="fs-2">Mas Altas por Materia</h3></th>
+    <th><h3 class="fs-2">Mas Bajas por Materia</h3></th>
+  </tr>
+  <tr>
+    <td>
+      <div>
+        <p>Aqui encontraras los estudiantes con las notas mas altas por materia</p>
+        <a class="btn btn-primary" asp-controller="SuperioresxMateria" asp-action="Index">Reporte</a>
+      </div>
+    </td>
+    <td>
+      <div>
+        <p>Aqui encontraras los estudiantes con las notas mas bajas por materia</p>
+        <a class="btn btn-primary" asp-controller="InferioresxMateria" asp-action="Index">Reporte</a>
+      </div>
+    </td>
+  </tr>
+</table>
 
   <div class="b-example-divider"></div>
 
      <hr />
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>

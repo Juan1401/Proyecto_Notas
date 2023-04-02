@@ -24,6 +24,7 @@ public partial class MerMariaJuliaContext : DbContext
 
     public virtual DbSet<InferioresxMateria> InferioresxMateria { get; set; }
 
+    public virtual DbSet<SuperioresxMateria> SuperioresxMateria { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     { 
         if (!optionsBuilder.IsConfigured)
@@ -98,6 +99,11 @@ public partial class MerMariaJuliaContext : DbContext
         });
 
         modelBuilder.Entity<InferioresxMateria>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<SuperioresxMateria>(entity =>
         {
             entity.HasNoKey();
         });

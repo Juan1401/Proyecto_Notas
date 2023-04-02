@@ -1,36 +1,31 @@
-﻿@*
-@{
-    ViewData["Title"] = "Inicio";
-}
-@model List<EstudianteMateriaViewModel>
+﻿@model List<Proyecto_Notas.DTOs.SuperioresxMateria>
 
+<h1>Notas mas altas por Materia</h1>
 
-<h1>Estudiantes con la nota máxima en cada materia</h1>
-
-<table>
+<table class="table">
     <thead>
         <tr>
-            <th>IdEstudiante</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Celular</th>
-            <th>NombreMateria</th>
-            <th>NotaMaxima</th>
-            <th>EstadoMateria</th>
+            <th>id_estudiante</th>
+            <th>nombre</th>
+            <th>apellido</th>
+            <th>celular</th>
+            <th>nombre_materia</th>
+            <th>Nota_Maxima</th>
+            <th>Estado_Materia</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var estudianteMateria in Model)
+        @foreach (var item in Model)
         {
-                <tr>
-                    <td>@estudianteMateria.IdEstudiante</td>
-                    <td>@estudianteMateria.Nombre</td>
-                    <td>@estudianteMateria.Apellido</td>
-                    <td>@estudianteMateria.Celular</td>
-                    <td>@estudianteMateria.NombreMateria</td>
-                    <td>@estudianteMateria.NotaMaxima</td>
-                    <td>@estudianteMateria.EstadoMateria</td>
-                </tr>
+                    <tr>
+                        <td>@item.id_estudiante</td>
+                        <td>@item.nombre</td>
+                        <td>@item.apellido</td>
+                        <td>@item.celular</td>
+                        <td>@item.nombre_materia</td>
+                        <td>@item.Nota_Maxima</td>
+                        <td>@item.Estado_Materia</td>
+                    </tr>
         }
     </tbody>
-</table>*@
+</table>
