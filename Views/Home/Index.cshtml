@@ -17,50 +17,37 @@
       <h1 class="display-4">Reportes</h1>
   </div>
 
-  <h2>Consulta de Notas</h2>
+  <div class="b-example-divider"></div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>id estudiante</th>
-            <th>nombre</th>
-            <th>apellido</th>
-            <th>celular</th>
-            <th>materia</th>
-            <th>nota máxima</th>
-            <th>estado de la materia</th>
-        </tr>
-    </thead>
-    <tbody>
-            @foreach (var item in Model)
-            {
-                    <tr>
-                        <td>
-                        @Html.DisplayFor(modelitem => item.IdEstudiante)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelitem => item.Nombre)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelitem => item.Apellido)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelitem => item.Celular)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelitem => item.NombreMateria)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelitem => item.NotaMaxima)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelitem => item.EstadoMateria)
-                        </td>
 
-                    </tr>
-            }
-    </tbody>
-</table>
+        <div>
+          <h3 class="fs-2">Aprobados</h3>
+          <p>Aqui encontraras los estudiantes <strong>aprobados</strong> con una nota de 3.5 o mas</p>
+          <a class="btn btn-primary" asp-controller="Aprobados" asp-action="Index">Reporte</a>
+        </div>
+
+
+        <div>
+          <h3 class="fs-2">No Aprobados</h3>
+          <p>Aqui encontraras los estudiantes <strong>reprobados</strong> con una nota menor a 3.5</p>
+         <a class="btn btn-primary" asp-controller="NoAprobados" asp-action="Index">Reporte</a>
+        </div>
+
+
+         <div>
+          <h3 class="fs-2">Mas Altas por Materia</h3>
+          <p>Aqui encontraras los estudiantes con las notas mas altas por materia</p>
+         <a class="btn btn-primary" asp-controller="Aprobados" asp-action="Index">Reporte</a>
+        </div>
+
+        <div>
+          <h3 class="fs-2">Mas Bajas por Materia</h3>
+          <p>Aqui encontraras los estudiantes con las notas mas bajas por materia</p>
+         <a class="btn btn-primary" asp-controller="Aprobados" asp-action="Index">Reporte</a>
+        </div>
+
+
+  <div class="b-example-divider"></div>
 
      <hr />
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>

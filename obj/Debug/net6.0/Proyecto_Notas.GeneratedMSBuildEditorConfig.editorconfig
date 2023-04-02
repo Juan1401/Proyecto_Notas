@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Estudio\C#\Proyecto_Notas
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Estudio/C\#/Proyecto_Notas/Views/Aprobados/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXByb2JhZG9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Estudio/C\#/Proyecto_Notas/Views/Estudiantes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0dWRpYW50ZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -61,6 +65,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Estudio/C\#/Proyecto_Notas/Views/Materias/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Estudio/C\#/Proyecto_Notas/Views/NoAprobados/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9BcHJvYmFkb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Estudio/C\#/Proyecto_Notas/Views/Notas/Create.cshtml]

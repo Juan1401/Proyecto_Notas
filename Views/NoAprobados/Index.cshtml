@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "Inicio";
+}
+@model IEnumerable<Proyecto_Notas.DTOs.ResultadoConsulta>
+
+<div class="text-center">
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+     <h1 class="display-4">Instituto Maria Julia</h1>
+    <p class="lead">Aplicacion de registro para las notas de nuestros estudiantes.</p>
+  </div>
+</div>
+    <hr />
+
+  <div class="text-center">
+      <h1 class="display-4">Reportes</h1>
+  </div>
+
+  <h2>Consulta de Notas</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>id estudiante</th>
+            <th>nombre</th>
+            <th>apellido</th>
+            <th>celular</th>
+            <th>materia</th>
+            <th>nota máxima</th>
+            <th>estado de la materia</th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var item in Model)
+            {
+                            <tr>
+                                <td>
+                        @Html.DisplayFor(modelitem => item.IdEstudiante)
+                                </td>
+                                <td>
+                        @Html.DisplayFor(modelitem => item.Nombre)
+                                </td>
+                                <td>
+                        @Html.DisplayFor(modelitem => item.Apellido)
+                                </td>
+                                <td>
+                        @Html.DisplayFor(modelitem => item.Celular)
+                                </td>
+                                <td>
+                        @Html.DisplayFor(modelitem => item.NombreMateria)
+                                </td>
+                                <td>
+                        @Html.DisplayFor(modelitem => item.NotaMaxima)
+                                </td>
+                                <td>
+                        @Html.DisplayFor(modelitem => item.EstadoMateria)
+                                </td>
+                            </tr>
+            }
+    </tbody>
+</table>
+</div>
